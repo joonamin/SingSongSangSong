@@ -1,0 +1,3 @@
+[submodule "backend/python/singsongsangsong/dataset/fma"]
+	path = backend/python/singsongsangsong/dataset/fma
+	url = https://github.com/mdeff/fma.git

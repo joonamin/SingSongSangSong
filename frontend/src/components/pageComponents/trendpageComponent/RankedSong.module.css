@@ -1,0 +1,68 @@
+.container {
+  width: 80%;
+  height: 170px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  font-size: 28px;
+  font-weight: 900;
+  font-family: "Pretendart-900";
+  border-left: 15px solid #22a2ff;
+  background-color: white;
+  border-radius: 3px;
+}
+
+.albumCover {
+  width: 100px;
+  height: 100px;
+  img {
+    object-fit: fill;
+    border-radius: 15px;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.content {
+  padding: 10px 5px;
+  justify-content: space-between;
+}
+
+.songInfo {
+  font-weight: 200;
+}
+
+.playCount {
+  font-weight: 200;
+}
+
+@media screen and (max-width: 992px) {
+  .container {
+    width: 200px;
+    height: 170px;
+  }
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .header {
+    width: 200px;
+    font-size: 18px;
+    h1 {
+      font-size: 18px;
+      font-weight: 900;
+    }
+  }
+  .songInfo {
+    display: none;
+  }
+  .playCount {
+    display: none;
+  }
+}

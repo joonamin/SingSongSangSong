@@ -1,0 +1,14 @@
+.container {
+  border-bottom: 1px solid black;
+  width: 400px;
+  padding-bottom: 10px;
+}
+
+.index {
+  font-family: "Pretendard-800";
+  font-size: 32px;
+}
+
+.notice {
+  font-family: "Pretendard-300";
+}

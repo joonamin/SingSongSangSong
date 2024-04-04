@@ -1,0 +1,82 @@
+.container {
+  margin-top: 60px;
+  width: 100%;
+  padding: 15px 60px;
+  margin: 15px 0px;
+}
+
+/* 장르별 / 분위기별 랭킹 선택 버튼 관련 스타일 */
+.header {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerButton {
+  color: #d5d5d5;
+  border: none;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+
+.headerButton:disabled {
+  color: #002a49;
+}
+
+/* 아래쪽 랭킹을 표시할 div의 큰 틀 */
+
+
+/* marquee 관련 스타일링 */
+/* https://www.npmjs.com/package/react-fast-marquee */
+
+.marquee {
+  width: 100%;
+  height: 40px;
+  background-color: #0085e5;
+  color: #ffffff;
+  font-size: 24px;
+  gap: 20px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  p {
+    margin: 0 50px;
+  }
+}
+
+/* selector 스타일 */
+.optionSelectBox {
+  width: 100%;
+  height: 50px;
+}
+
+.optionSelector {
+  background-color: #c5e7ff;
+  border: 1px solid #c5e7ff;
+  text-align: center;
+  border-radius: 5px;
+  width: 300px;
+  height: 32px;
+  font-size: 18px;
+  margin: 5px 0px;
+}
+
+/* 음악 ,작곡가 랭킹을 감쌀 큰 div */
+.rankSection {
+  width: 100%;
+  gap: 15px;
+  padding : 0px 10px 10px 10px;
+}
+
+.songSection {
+  width: 50%;
+  height: 100%;
+  gap: 10px;
+}
+
+.authorSection {
+  width: 50%;
+  height: 100%;
+  gap: 10px;
+}

@@ -1,0 +1,105 @@
+pipeline {
+    agent any 
+    environment {
+        dockerHubRegistry = 'jinjoo0402/s4_react'
+        DOCKERHUB_CREDENTIALS = credentials('DOCKER_HUB_TOKEN') 
+    }
+    stages {
+        stage('Checkout Application Git Branch') {
+            steps {
+                git credentialsId: 'GITLAB_TOKEN',
+                    url: 'https://lab.ssafy.com/s10-bigdata-dist-sub2/S10P22E206.git',
+                    branch: 'react'
+            }
+            post {
+                failure {
+                    echo 'Repository clone failure !'
+                }
+                success {
+                    echo 'Repository clone success !'
+                }
+            }
+        }
+        stage('React Build') {
+            steps {
+                dir('./frontend') {
+                    withCredentials([file(credentialsId: 'REACT_ENVIRONMENT', variable: 'reactEnvFile')]) {
+                        script {
+                            sh 'npm install'
+                            sh 'cp $reactEnvFile ./.env'
+                        }
+                    }
+                }
+            }
+            post {
+                failure {
+                    echo 'React npm start failure !'
+                }
+                success {
+                    echo 'React npm start success !'
+                }
+            }
+        }
+        stage('Docker Image Build') {
+            steps {
+                dir('./frontend') {
+                    sh "sudo docker build . -t ${dockerHubRegistry}:${currentBuild.number}"
+                    sh "sudo docker build . -t ${dockerHubRegistry}:latest"
+                }
+            }
+            post {
+                failure {
+                    echo 'Docker image build failure !'
+                }
+                success {
+                    echo 'Docker image build success !'
+                }
+            }
+        }
+        stage('Login') {
+            steps {
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+            }
+        }
+        stage('Docker Image Push') {
+            steps {
+                sh "docker push ${dockerHubRegistry}:${currentBuild.number}"
+                sh "docker push ${dockerHubRegistry}:latest"
+                sleep 5
+            }
+            post {
+                failure {
+                    echo 'Docker Image Push failure !'
+                    sh "docker rmi ${dockerHubRegistry}:${currentBuild.number}"
+                    sh "docker rmi ${dockerHubRegistry}:latest"
+                }
+                success {
+                    echo 'Docker image push success !'
+                    sh "docker rmi ${dockerHubRegistry}:${currentBuild.number}"
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'docker ps -f name=react-service -q \
+                | xargs --no-run-if-empty docker container stop'
+
+                sh 'docker container ls -a -f name=react-service -q \
+                | xargs -r docker container rm'
+
+                sh 'docker run -d --name react-service \
+                -p 3000:3000 \
+                -v /path/to/build:/app \
+                ${dockerHubRegistry}:latest'
+            }
+            post {
+                failure {
+                    echo 'React deployment failure !'
+                }
+                success {
+                    echo 'React deployment success !'
+                }
+            }
+        }
+    }
+}

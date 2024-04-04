@@ -1,0 +1,32 @@
+.container {
+  padding: 0px 80px;
+}
+
+.content {
+  width: 100% !important;
+  display: flex !important;
+}
+
+.leftBox {
+  width: 60%;
+}
+
+.rightBox {
+  width: 50%;
+}
+
+.indicator {
+  p {
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 996px) {
+  .leftBox {
+    width: 100%;
+  }
+  .rightBox {
+    display: none;
+    width: 50%;
+  }
+}

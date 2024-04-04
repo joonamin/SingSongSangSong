@@ -1,0 +1,23 @@
+.errorImgBox {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  top: -50px;
+}
+
+.errorText {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 90%;
+  transform: translateX(-50%);
+  font-size: 48px;
+}
+
+.errorImg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}

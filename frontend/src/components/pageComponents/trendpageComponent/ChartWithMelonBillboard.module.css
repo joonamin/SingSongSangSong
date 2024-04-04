@@ -1,0 +1,74 @@
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.container img {
+  width: 24px;
+  height: 24px;
+}
+.content {
+  width: 100%;
+}
+
+.songs {
+  width: 100%;
+  padding: 15px 0px;
+  border-bottom: 1px solid #71c3ff;
+  border-top: 1px solid #71c3ff;
+  gap: 10px;
+}
+
+.song {
+  cursor: pointer;
+  width: 90%;
+  height: 120px;
+  justify-content: flex-start;
+  border: 1px solid #dddddd;
+}
+
+.chartBox {
+  width: 100%;
+  height: 200px;
+  padding: 15px 0;
+}
+
+.leftChart {
+  width: 50%;
+  height: 100%;
+}
+
+.rightChart {
+  width: 50%;
+  height: 100%;
+}
+
+.flowImg {
+  width: 100%;
+  height: 50px;
+  border: 1px solid black;
+}
+
+.album {
+  display: flex;
+}
+
+.album img {
+  width: 100%;
+  height: 100%;
+}
+
+.selected {
+  background-color: #c5e7ff;
+}
+
+.tagBox {
+  width: 100%;
+  height: 50px;
+  padding: 15px 0;
+}

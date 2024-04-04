@@ -1,0 +1,22 @@
+.container {
+  cursor: pointer;
+  width: 150px;
+  padding: 5px 30px;
+  border-radius: 5px;
+}
+
+.intro {
+  background-color: #e7c9f2;
+}
+
+.verse {
+  background-color: #b4ecb2;
+}
+
+.chorus {
+  background-color: #ebe1ad;
+}
+
+.bridge {
+  background-color: #b0ccf5;
+}

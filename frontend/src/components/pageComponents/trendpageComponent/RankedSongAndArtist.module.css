@@ -1,0 +1,46 @@
+.container {
+  padding: 10px 10px;
+  justify-content: space-evenly;
+  border: 1px solid #22a2ff;
+  border-radius: 15px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.album {
+  width: 100px;
+  height: 100px;
+}
+
+.info {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.info h1,
+.info h3,
+.info p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.indicator {
+  border: 2px solid #c5e7ff;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.indicator p {
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 992px) {
+  .indicator {
+    display: none;
+  }
+}

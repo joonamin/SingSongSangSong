@@ -1,0 +1,250 @@
+body {
+  margin: 0;
+  font-family: "Pretendard-500", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #002a49;
+  /* 페이지 내 스크롤 금지 */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  height: auto;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  padding: 0;
+  margin: 0;
+  vertical-align: baseline;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.bg-color1 {
+  background-color: #f4f9fd;
+}
+
+.modal::backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal {
+  position: relative;
+  min-width: 30rem;
+  min-height: 23rem;
+  padding: 15px;
+  background: #f4f9fd;
+  border: 1px solid #22a2ff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #71c3ff;
+  animation: slide-down-fade-in 0.3s ease-out forwards;
+}
+
+.flex-col-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flex-row-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.bg-box {
+  background-color: #f4f9fd;
+  border-radius: 15px;
+}
+
+.border-box {
+  border: 1px solid #0085e5;
+  border-radius: 15px;
+}
+
+.shadow-box {
+  box-shadow: #71c3ff 0px 7px 20px 0px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.h-100 {
+  height: 100vh;
+}
+
+.px-main {
+  padding: 0px 6rem;
+}
+
+.my-main {
+  margin: 3rem 0;
+}
+
+.p-15 {
+  padding: 15px;
+}
+
+.px-15 {
+  padding: 0px 15px;
+}
+
+.py-15 {
+  padding: 15px 0px;
+}
+
+.b-15 {
+  border-radius: 15px;
+}
+
+.gap-15 {
+  gap: 15px;
+}
+
+.gap-30 {
+  gap: 30px;
+}
+
+.gap-60 {
+  gap: 150px;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mr-auto {
+  margin-right: auto;
+}
+
+.mb-auto {
+  margin-bottom: auto;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+/* 폰트 영역  */
+@font-face {
+  font-family: "Pretendard-100";
+  src: url("./sources/font/Pretendard-Thin.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard-200";
+  src: url("./sources/font/Pretendard-ExtraLight.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard-300";
+  src: url("./sources/font/Pretendard-Light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard-400";
+  src: url("./sources/font/Pretendard-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard-500";
+  src: url("./sources/font/Pretendard-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard-600";
+  src: url("./sources/font/Pretendard-SemiBold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard-700";
+  src: url("./sources/font/Pretendard-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard-800";
+  src: url("./sources/font/Pretendard-ExtraBold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Pretendard-900";
+  src: url("./sources/font/Pretendard-Black.woff") format("woff");
+}

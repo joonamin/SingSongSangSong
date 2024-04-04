@@ -1,0 +1,45 @@
+.container {
+  width: 100%;
+  padding: 15px;
+  gap: 15px;
+}
+
+.user {
+  height: 100%;
+  width: 75px;
+  gap: 5px;
+}
+
+.userName {
+  width: 75px;
+  height: 20px;
+  p {
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+.profileImg {
+  width: 75px;
+  height: 75px;
+}
+
+.textArea {
+  border: 1px solid #999999;
+  border-radius: 15px;
+  padding: 15px;
+  height: 75px;
+  overflow: scroll;
+  -ms-overflow-style: none;
+  flex-grow: 1;
+}
+
+.textArea:active {
+  border-color: black;
+}
+
+.textArea::-webkit-scrollbar {
+  display: none;
+}

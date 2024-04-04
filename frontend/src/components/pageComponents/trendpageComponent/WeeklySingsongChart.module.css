@@ -1,0 +1,125 @@
+.container {
+  margin-top: 15px;
+  height: 500px;
+}
+/* 최상단 헤더 */
+.headerContainer {
+  font-size: 28px;
+  height: 10%;
+}
+
+/* 헤더 아래쪽의 영역 */
+.chartContainer {
+  display: flex;
+  justify-content: center;
+  height: 90%;
+  width: 100%;
+}
+
+/*왼쪽 화살표*/
+.leftArrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3%;
+}
+
+/* 왼쪽 box */
+.leftBox {
+  width: 70%;
+  height: 100%;
+  padding: 15px 15px;
+}
+
+/* 좌상단 앨범 곡제목 / 작곡가 및 다운로드 등 횟수를 보여줄 section */
+.leftTopBox {
+  display: flex;
+  justify-content: center;
+  height: 100px;
+}
+
+.albumCover {
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
+}
+
+.albumCover img {
+  object-fit: fill;
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+}
+
+.musicBox {
+  margin: auto;
+  width: 250px;
+  align-items: normal;
+  font-size: 24px;
+  overflow: hidden;
+  padding: 0px 5px;
+}
+
+.topIndicator {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+  width: 300px;
+  height: 50px;
+  border: 1px solid black;
+  border-radius: 30px;
+  gap: 10px;
+}
+
+.topIndicator span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  gap: 3px;
+}
+
+/* 곡설명이 들어갈 box */
+.songInfoBox {
+  border: 1px solid black;
+  border-radius: 15px;
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  padding: 15px;
+  margin: 15px auto;
+  font-size: 24px;
+}
+
+/* 발라드, 따뜻한, bpm등이 들어갈 태그박스 */
+.tagBox {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* 중앙 컨텐츠(화살표제외)를 감쌀 영역 */
+.wrapper {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #22a2ff;
+  border-radius: 15px;
+  box-shadow: 7px 7px 7px #71c3ff;
+}
+
+.rightBox {
+  width: 30%;
+  height: 100%;
+  padding: 15px;
+}
+
+.rightArrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3%;
+}

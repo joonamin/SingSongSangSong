@@ -1,0 +1,32 @@
+.container {
+  width: 100%;
+  padding: 15px 60px;
+  margin: 20px 0px;
+  gap: 15px;
+}
+
+.info {
+  gap: 5px;
+}
+
+.content {
+  height: 100%;
+  justify-content: space-evenly;
+}
+
+.songBox {
+  gap: 5px;
+}
+
+.emotions {
+  width: 100px;
+  height: 30px;
+  border: 1px solid #dddddd;
+  border-radius: 15px;
+  gap: 5px;
+}
+
+.emotions img {
+  width: 24px;
+  height: 24px;
+}

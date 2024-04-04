@@ -1,0 +1,132 @@
+.mainContainer {
+  display: block;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  justify-content: center;
+  width: 250px;
+  height: 100vh;
+  box-shadow: 6px 0 3px #d9d9d9;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  transition: 0.5s;
+}
+
+.mainContainer label {
+  display: block;
+  font-family: "Pretendard-600";
+  margin: 5px 12px;
+  padding: 0 12px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+/* .mainContainer::-webkit-scrollbar {
+  display: none;
+} */
+
+.title {
+  display: flex;
+  width: 100%;
+  height: 120px;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.titleIcon {
+  display: none;
+
+}
+
+.sidebarLinksSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0px;
+  border-top: 0.5px solid #d9d9d9;
+}
+
+.accountSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0px;
+  border-top: 0.5px solid #d9d9d9;
+}
+
+.aboutSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0px;
+  border-top: 0.5px solid #d9d9d9;
+}
+
+.mainContainer a {
+  display: flex;
+  align-items: center;
+  width: 186px;
+  margin: 3px 16px;
+  padding: 0px 16px;
+  border-radius: 10px;
+  height: 48px;
+  gap: 0.8rem;
+  color: #002a49;
+}
+
+.mainContainer a:hover {
+  background-color: #f7f7f7fc;
+}
+
+.active {
+  background-color: #c5e7ff !important;
+  color: #0085e5 !important;
+}
+
+@media screen and (max-width: 992px) {
+  .mainContainer {
+    width: 70px;
+  }
+
+  .mainContainer a {
+    width: 50px;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .title {
+    height: 60px;
+  }
+
+  .titleIcon {
+    display: block;
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .titleImg {
+    display: none;
+  }
+
+  .mainContainer span {
+    display: none;
+  }
+
+  .mainContainer label {
+    display: none;
+  }
+}

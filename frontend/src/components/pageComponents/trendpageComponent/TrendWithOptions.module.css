@@ -1,0 +1,107 @@
+.container {
+  margin-top: 60px;
+  padding: 15px 60px;
+}
+
+.content {
+  padding: 10px;
+}
+
+.topSection {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  border-bottom: 2px solid #0085e5;
+  margin-bottom: 15px;
+}
+
+/* box 위쪽의 남성 여성 선택 토글 버튼을 위한 스타일 및 연령 선택 스타일 */
+.genderSelector {
+  display: flex;
+  position: absolute;
+  left: 15px;
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 0;
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+}
+
+.toggleButton {
+  width: 40px;
+  height: 30px;
+  transition: 0.3s all ease-in-out;
+}
+
+.active {
+  background-color: #71c3ff;
+  width: 60px;
+  height: 30px;
+  color: #ffffff;
+  border: none;
+  border-radius: 15px;
+  transition: 0.3s all ease-in-out;
+}
+
+.ageSelector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  gap: 10px;
+  font-size: 24px;
+}
+
+.ageSelector p {
+  text-align: center;
+  width: 70px;
+}
+
+/* bottom section */
+.bottomSection {
+  flex-wrap: wrap;
+}
+
+/* 왼쪽 아래 장르 탭을 포함한 barchart를 감쌀 css 스타일 */
+.bottomLeftContainer {
+  width: 60%;
+}
+
+.tabMenu {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 20px;
+  gap: 4px;
+}
+
+.tabMenu li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 2px #c9c9c9;
+  width: 70px;
+  height: 40px;
+  border: 1px solid #c9c9c9;
+  border-radius: 5px;
+  padding: 0 30px;
+}
+
+.tabActive {
+  background-color: #22a2ff;
+  color: #ffffff;
+}
+
+/*왼쪽 아래의 barchart를 감쌀 스타일 */
+
+/*오른쪽 아래의 태그 별 랭킹을 관리할 스타일*/
+.bottomSongContainer {
+  width: 40%;
+  padding: 10px;
+  gap: 5px;
+}
+
+.bottomRightContainer h1 {
+  color: #0075ff;
+}

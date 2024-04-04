@@ -1,0 +1,32 @@
+.base {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: center;
+  position: relative;
+  min-width: 90px;
+  font-size: 20px;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 12px;
+  cursor: pointer;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  user-select: none;
+  background-color: #0085e5;
+  color: #ffffff;
+}
+
+.base:hover {
+  background-color: #0085e5;
+}
+
+.base:disabled {
+  background-color: #dddddd;
+}
+
+.big {
+  width: 120px;
+}

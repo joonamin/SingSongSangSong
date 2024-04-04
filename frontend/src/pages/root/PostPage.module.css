@@ -1,0 +1,81 @@
+.container {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+.container h2 {
+  padding-bottom: 5px;
+  border-bottom: 2px solid black;
+  margin-bottom: 5px;
+}
+
+.header {
+  gap: 0.5rem;
+  padding-bottom: 5px;
+  border-bottom: 3px solid black;
+}
+
+.content {
+}
+
+.inputForm {
+  width: 200px;
+  height: 200px;
+  box-sizing: border-box;
+  text-align: center;
+  border: 5px dashed #dddddd;
+  border-radius: 15px;
+}
+
+.imgInput {
+  display: none;
+}
+
+.inputRightBox {
+  width: 400px;
+}
+
+.titleInput {
+}
+
+.borderBottom {
+  border-bottom: 2px solid black;
+}
+
+.postSelector {
+  font-size: 24px;
+  background-color: #f4f9fd;
+  text-align: center;
+}
+
+.postTextarea {
+  resize: none;
+  background-color: #f4f9fd;
+  font-size: 22px;
+  font-family: "Pretendart-500";
+  overflow-y: auto;
+  -ms-overflow-style: none;
+}
+
+.postTextarea::-webkit-scrollbar {
+  display: none;
+}
+
+.albumCover {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.innerResetBtn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6.5px);
+  -webkit-backdrop-filter: blur(6.5px);
+}

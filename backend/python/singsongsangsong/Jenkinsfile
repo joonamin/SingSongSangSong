@@ -1,0 +1,101 @@
+pipeline {
+    agent any 
+    environment {
+        dockerHubRegistry = 'jinjoo0402/s4_fastapi'
+        DOCKERHUB_CREDENTIALS = credentials('DOCKER_HUB_TOKEN') 
+        EC2_CREDENTIALS = credentials('PYTHON_EC2_SSH_KEY') 
+        dockerHost = 'ssh://ubuntu@j10e206a.p.ssafy.io'
+    }
+    stages {
+        stage('Checkout Application Git Branch') {
+            steps {
+                script {
+                    def gitLFSInstalled = sh(script: 'git lfs version', returnStatus: true) == 0
+                    if (!gitLFSInstalled) {
+                        sh 'sudo apt-get install git-lfs'
+                        sh 'git lfs install'
+                    }
+
+                    git credentialsId: 'GITLAB_TOKEN',
+                        url: 'https://lab.ssafy.com/s10-bigdata-dist-sub2/S10P22E206.git',
+                        branch: 'fastapi'
+                }
+            }
+            post {
+                failure {
+                    echo 'Repository clone failure !'
+                }
+                success {
+                    echo 'Repository clone success !'
+                }
+            }
+        }
+        stage('Docker Image Build') {
+            steps {
+                dir('./backend/python/singsongsangsong') {
+                    withCredentials([file(credentialsId: 'PYTHON_MODEL', variable: 'modelFile')]) {
+                        script {
+                            sh 'cp $modelFile ./s4dsp/data/models/modelFile.tar'
+                            sh 'tar -xvf ./s4dsp/data/models/modelFile.tar'
+                            sh "sudo docker build . -t ${dockerHubRegistry}:${currentBuild.number}"
+                            sh "sudo docker build . -t ${dockerHubRegistry}:latest"
+                        }
+                    }
+
+                }
+            }
+            post {
+                failure {
+                    echo 'Docker image build failure !'
+                }
+                success {
+                    echo 'Docker image build success !'
+                }
+            }
+        }
+        stage('Login') {
+            steps {
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+            }
+        }
+        stage('Docker Image Push') {
+            steps {
+                sh "docker push ${dockerHubRegistry}:${currentBuild.number}"
+                sh "docker push ${dockerHubRegistry}:latest"
+                sleep 5
+            }
+            post {
+                failure {
+                    echo 'Docker Image Push failure !'
+                    sh "docker rmi ${dockerHubRegistry}:${currentBuild.number}"
+                    sh "docker rmi ${dockerHubRegistry}:latest"
+                }
+                success {
+                    echo 'Docker image push success !'
+                    sh "docker rmi ${dockerHubRegistry}:${currentBuild.number}"
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sshagent (credentials: ['PYTHON_EC2_SSH_KEY']) { 
+
+                    sh """
+                        docker -H ${dockerHost} stop fastapi-service || true
+                        docker -H ${dockerHost} rm fastapi-service || true
+                        docker -H ${dockerHost} rmi jinjoo0402/s4_fastapi || true
+                        docker -H ${dockerHost} run -d --name fastapi-service -p 8000:8000 ${dockerHubRegistry}:latest
+                    """
+                }
+            }
+            post {
+                failure {
+                    echo 'fastapi deployment failure !'
+                }
+                success {
+                    echo 'fastapi deployment success !'
+                }
+            }
+        }
+    }
+}

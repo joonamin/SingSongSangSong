@@ -1,0 +1,66 @@
+.container {
+  margin-top: 2rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 3px solid black;
+  gap: 5px;
+  padding-bottom: 10px;
+}
+
+.uploadSection {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  margin-top: 10px;
+}
+
+.uploadBox {
+  margin-top: 15px;
+  padding: 30px 15px 30px 15px;
+  gap: 15px;
+  background-color: #f4f9fd;
+  border: 5px dashed #dddddd;
+  p {
+    pointer-events: none;
+  }
+}
+
+.file {
+  display: none;
+  width: 100%;
+  height: 100;
+}
+
+.active {
+  border-color: #0085e5;
+}
+
+.iconActive {
+  transform: scale(1.2);
+  transition: 1s all ease-in-out;
+}
+
+.checkSection {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.checkBox {
+  border: 5px solid #0085ff;
+}
+
+.player {
+  width: 50%;
+}
+
+.resetBtn {
+  cursor: pointer;
+  border: none;
+  background-color: #ffffff;
+}

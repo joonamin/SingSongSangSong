@@ -1,0 +1,58 @@
+.container {
+  width: 100%;
+  height: 100%;
+  gap: 15px;
+}
+
+.content {
+  width: 100%;
+}
+
+/* 선택된 박스의 배경을 담당 */
+.selceted {
+  border-radius: 15px;
+  background-color: #d7d7d7;
+}
+
+.similarSong {
+  width: 45%;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.compareSongSection {
+  width: 60%;
+  background-color: #f4f9fd;
+}
+
+.compareSong {
+  width: 100%;
+  text-align: center;
+}
+
+.selectedSong {
+  padding: 15px;
+  width: 50%;
+}
+
+.mySong {
+  padding: 15px;
+  width: 50%;
+  text-align: center;
+}
+
+.box {
+  width: 200px;
+  height: 150px;
+  border: 2px solid #d7d7d7;
+  border-radius: 15px;
+}
+@media screen and (max-width: 992px) {
+  .content {
+  }
+
+  .similarSong {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

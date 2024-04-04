@@ -1,0 +1,29 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+fastapi = "~=0.110.0"
+uvicorn = {extras = ["standard"], version = "<0.23.0,>=0.12.0"}
+python-dotenv = "~=1.0.1"
+gunicorn = "~=21.2.0"
+librosa = "~=0.10.1"
+essentia-tensorflow = "~=2.1b6.dev1110"
+pymilvus = "~=2.4.0"
+matplotlib = "~=3.8.3"
+pychorus = "~=0.1"
+msaf = "~=0.1.80"
+scipy = "<1.12.0"
+mysql-connector-python = "*"
+minio = "*"
+panns-inference = "~=0.1.1"
+torch = "~=2.2.1"
+pandas = "~=2.2.1"
+
+[dev-packages]
+pylint = "*"
+
+[requires]
+python_version = "3.11"
+python_full_version = "3.11.8"

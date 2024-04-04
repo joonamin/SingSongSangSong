@@ -1,0 +1,19 @@
+.container {
+  padding: 15px 60px;
+}
+
+.content {
+  height: 100%;
+}
+
+.billboard {
+  width: 50%;
+  height: 100%;
+  padding: 15px;
+}
+
+.melon {
+  width: 50%;
+  height: 100%;
+  padding: 15px;
+}

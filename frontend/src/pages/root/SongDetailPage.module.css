@@ -1,0 +1,42 @@
+.container {
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.artistCover {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  margin-bottom: 100px;
+  background-color: black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.songImg {
+  position: absolute;
+  left: 50%;
+  bottom: -90px;
+  transform: translate(-50%, 6%);
+}
+
+.content {
+  padding: 0px 6rem;
+}
+
+.emotionBox {
+  margin-top: 15px;
+  width: 100%;
+  padding: 20px;
+  border-radius: 30px;
+  background-color: #f4f9fd;
+  font-size: 32px;
+  color: #006db0;
+  font-weight: 700;
+  font-family: "Pretandard-700";
+}
+
+.commentBox {
+  margin-top: 20px;
+}

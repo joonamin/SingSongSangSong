@@ -1,0 +1,44 @@
+.container {
+  width: 100%;
+  position: relative;
+  height: 352px;
+  border: 1px solid black;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+}
+
+.background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6.5px);
+  -webkit-backdrop-filter: blur(6.5px);
+  justify-content: unset;
+  padding-left: 32px;
+  padding-right: 32px;
+  font-size: 18px;
+}
+
+.musicAlbum {
+  display: block;
+  width: 256px;
+  height: 256px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-right: 48px;
+}

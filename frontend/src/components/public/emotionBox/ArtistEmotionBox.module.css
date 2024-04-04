@@ -1,0 +1,37 @@
+.container {
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 10px 0px;
+}
+
+.container img {
+  display: inline;
+  width: 70px;
+  height: 70px;
+}
+
+.emotion {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.emotionButton {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.emotionButton[name]:hover::after {
+  font-family: "Pretendard-300";
+  content: attr(name);
+  position: absolute;
+  padding: 4px;
+  background: #f4f9fd;
+  font-size: 18px;
+  font-weight: 300;
+  border: 2px solid #22a2ff;
+  border-radius: 15px;
+  color: #002a49;
+  text-align: center;
+  z-index: 100;
+}

@@ -1,0 +1,6 @@
+{
+	"python.terminal.activateEnvironment": false,
+	"editor.insertSpaces": true,
+	"editor.indentSize": 4,
+	"editor.tabSize": 4
+}

@@ -1,0 +1,114 @@
+pipeline {
+    agent any 
+    tools {
+      jdk 'jdk-21-oracle-x64'
+      gradle 'gradle_8.6'
+    }
+ environment {
+      dockerHubRegistry = 'jinjoo0402/s4_spring' /* URL변경에 따른 수정 필요 */
+      DOCKERHUB_CREDENTIALS = credentials('DOCKER_HUB_TOKEN') 
+  }
+  stages {
+
+    stage('Checkout Application Git Branch') {
+        steps {
+            git credentialsId: 'GITLAB_TOKEN',
+                url: 'https://lab.ssafy.com/s10-bigdata-dist-sub2/S10P22E206.git', /* Git repo */
+                branch: 'spring'
+        }
+        post {
+                failure {
+                  echo 'Repository clone failure !'
+                }
+                success {
+                  echo 'Repository clone success !'
+                }
+        }
+    }
+
+
+    stage('gardle Jar Build') {
+            steps {
+                dir('./backend/spring/SingSongSangSong') {
+                    sh 'chmod +x gradlew'
+                    sh './gradlew clean'
+                    sh './gradlew bootjar' 
+                }
+            }
+            post {
+                    failure {
+                      echo 'Gradle jar build failure !'
+                    }
+                    success {
+                      echo 'Gradle jar build success !'
+                    }
+            }
+
+    }
+    stage('Docker Image Build') {
+            steps {
+                dir('./backend/spring/SingSongSangSong') {
+                  sh "sudo docker build . -t ${dockerHubRegistry}:${currentBuild.number}"
+                  sh "sudo docker build . -t ${dockerHubRegistry}:latest"
+                }
+            }
+            post {
+                    failure {
+                      echo 'Docker image build failure !'
+                    }
+                    success {
+                      echo 'Docker image build success !'
+                    }
+            }
+    }
+      stage('Login'){
+          steps{
+              sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin' // docker hub 로그인
+          }
+      }
+
+    stage('Docker Image Push') {
+            steps {
+                      sh "docker push ${dockerHubRegistry}:${currentBuild.number}"
+                      sh "docker push ${dockerHubRegistry}:latest"
+                      sleep 5
+                  
+            }
+            post {
+                    failure {
+                      echo 'Docker Image Push failure !'
+                      sh "docker rmi ${dockerHubRegistry}:${currentBuild.number}"
+                      sh "docker rmi ${dockerHubRegistry}:latest"
+                    }
+                    success {
+                      echo 'Docker image push success !'
+                      sh "docker rmi ${dockerHubRegistry}:${currentBuild.number}"
+                    }
+            }
+    }
+    stage('Deploy') {
+            steps {
+                sh 'docker ps -f name=spring-service -q \
+                | xargs --no-run-if-empty docker container stop'
+
+                sh 'docker container ls -a -f name=spring-service -q \
+                | xargs -r docker container rm'
+
+                sh 'docker run -d --name spring-service \
+                -p 8080:8080 \
+                -v /etc/localtime:/etc/localtime:ro \
+                ${dockerHubRegistry}:latest'
+            }
+
+            post {
+                success {
+                    echo 'success'
+                }
+
+                failure {
+                    echo 'failed'
+                }
+            }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.container {
+  position: fixed;
+  height: 100px;
+  bottom : -12px;
+  left: 0px;
+  z-index: 1;
+  display: none;
+}
+
+.show {
+  display: block;
+}

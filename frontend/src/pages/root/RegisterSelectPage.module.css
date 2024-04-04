@@ -1,0 +1,34 @@
+.container {
+  width: 400px;
+}
+
+.linkBox {
+  width: 400px;
+  margin-top: 20px;
+}
+
+.buttonBox {
+  width: 400px;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.socialBox {
+  margin-top: 20px;
+}
+
+.socialButton {
+  padding: 0px;
+  width: 200px;
+  height: 50px;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,41 @@
+.content {
+  width: 100%;
+}
+
+.imgSection {
+  width: 100%;
+  max-height: 200px;
+}
+
+.imgSection img {
+  width: 100%;
+  max-height: 200px;
+  height: 100%;
+}
+
+.tagSection {
+  width: 100%;
+  padding: 15px;
+  background-color: #f4f9fd;
+  border: 1px solid #0085ff;
+  border-radius: 15px;
+}
+
+.innerSection {
+  justify-content: flex-start;
+  margin: 15px 0px;
+  gap: 10px;
+  overflow: scroll;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  padding: 10px;
+  background-color: #c5e7ff;
+  border-radius: 15px;
+}
