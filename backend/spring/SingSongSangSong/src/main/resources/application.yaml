@@ -22,20 +22,20 @@ spring:
       client:
         registration:
           google:
-            client-id: 813928593657-9v2bpcp9p2l3i3j5ri6vrdnu0dd1sif5.apps.googleusercontent.com
-            client-secret: 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
+            client-id: ${google-client-id}
+            client-secret: ${google-client-secret}
             scope: profile, email
             redirect-uri: https://api.singsongsangsong.com/login/oauth2/code/google
           naver:
-            client-id: t8m3plQmDMt1BM58c5g6
-            client-secret: VbWntwUdPR
+            client-id: ${naver-client-id}
+            client-secret: ${naver-client-secret}
             redirect-uri: http://api.singsongsangsong.com/login/oauth2/code/naver
             authorization-grant-type: authorization_code
             scope: name,email,profile_image
             client-name: Naver
           kakao:
-            client-id: d3ace32d6368823829feba818d7ff6d3
-            client-secret: LF49xe2E8pAoMeQaRtskgi5hIvzX4CbK
+            client-id: ${kakao-client-id}
+            client-secret: ${kakao-client-secret}
             redirect-uri: http://api.singsongsangsong.com/login/oauth2/code/kakao
             scope:
               - account_email
@@ -55,8 +55,6 @@ spring:
             user-info-uri: https://kapi.kakao.com/v2/user/me
             user-name-attribute: id
     singsongsangsong:
-      #      redirect-uri: http://localhost:3000/
-      # TODO : url temp용으로 localhost
       redirect-uri: https://www.singsongsangsong.com/
 
   sql:
@@ -65,12 +63,12 @@ spring:
   
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://stg-yswa-kr-practice-db-master.mariadb.database.azure.com:3306/S10P22E206?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
-    username: S10P22E206
-    password: CuSfPXDNXr
+    url: ${datasource.url}
+    username: ${datasource.username}
+    password: ${datasource.password}
   data:
     mongodb:
-      uri: mongodb+srv://S10P22E206:rui4ZhwEt1@ssafy.ngivl.mongodb.net/S10P22E206?authSource=admin
+      uri: ${datasource.nosql.uri}
 
   output:
     ansi:
@@ -80,22 +78,22 @@ spring:
       initialize-schema: always
 
 jwt:
-  secretKey: "QjaVCjBnUIWtzWt8erZbO2ZFApswkbVhSArPu6GshQ8jp2OLtRhhOVl3pv8DTxaBA6kEjeZPJz8Uhy66tpGVwBEWIdflSQcSwTNvnMM7FSL8hz8N4syBT9nWqT006unUVqIemV9L8jMtu2bPFRu8p6qO8RXySni4cliOF4Wd1dUWiAx7Io4ONcW3UHXwtD4QvDstZm4EWHGnXXaZ4um4Pj5BXwJJb7jmlGMXYM84ZBwyDA6I1XmpQlv19O0bnZjqMqbNo5ockscMYv1xOHQSiTXBf6YjD0y98ZgRZiRkz4cYjxvJDpWGN28DmArr2TZ0AvRLd78uvmJzybH137CIgGRzwtfR91MbG5Q3QAMytYPgdkxv2weeOFGcAlIUEIAXkn6pXRPrxWZBUL3NrzEyYJyK6xUbZM1T4ZgelQ650DK6RAdWgLaHA0sdw7lZltcZRoVjhgteMWpnvPWOaZ97xR25cNYdOLvFhrO9bev8QnZfHB7HKiPE3gCpN4539wNlQjaVCjBnUIWtzWt8erZbO2ZFApswkbVhSArPu6GshQ8jp2OLtRhhOVl3pv8DTxaBA6kEjeZPJz8Uhy66tpGVwBEWIdflSQcSwTNvnMM7FSL8hz8N4syBT9nWqT006unUVqIemV9L8jMtu2bPFRu8p6qO8RXySni4cliOF4Wd1dUWiAx7Io4ONcW3UHXwtD4QvDstZm4EWHGnXXaZ4um4Pj5BXwJJb7jmlGMXYM84ZBwyDA6I1XmpQlv19O0bnZjqMqbNo5ockscMYv1xOHQSiTXBf6YjD0y98ZgRZiRkz4cYjxvJDpWGN28DmArr2TZ0AvRLd78uvmJzybH137CIgGRzwtfR91MbG5Q3QAMytYPgdkxv2weeOFGcAlIUEIAXkn6pXRPrxWZBUL3NrzEyYJyK6xUbZM1T4ZgelQ650DK6RAdWgLaHA0sdw7lZltcZRoVjhgteMWpnvPWOaZ97xR25cNYdOLvFhrO9bev8QnZfHB7HKiPE3gCpN4539wNl"
+  secretKey: ${jwt.secret}
 
   access:
     expiration: 3600000 # 1??(60?) (1000L(ms -> s) * 60L(s -> m) * 60L(m -> h))
     header: Authorization
 
 synology:
-  host: zip.udon.party
-  account: jinjoo021
-  passwd: 206s4nas!
-  baseDir: /ssafy
+  host: ${nas.host}
+  account: ${nas.account}
+  passwd: ${nas.passwd}
+  baseDir: ${nas.baseDir}
 
 minio:
-  endpoint: http://zip.udon.party:40001
-  accessKey: mtppqpRtSxArNq81phwB
-  secretKey: pqjrczK0C5JsFDnociyril8CqCbB5Mtfybkhl8p5
+  endpoint: ${object-storage.endpoint}
+  accessKey: ${object-storage.accessKey}
+  secretKey: ${object-storage.secretKey}
   serviceName: s3
 
 csv:
